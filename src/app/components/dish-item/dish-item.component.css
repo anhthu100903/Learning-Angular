@@ -1,0 +1,38 @@
+.dish-item-container {
+  background: rgb(48, 60, 73);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* height: 100%; Chiều cao tự động kéo dài */
+}
+
+.dish-item-container .info p {
+    word-wrap: break-word; /* Cho phép nội dung dài xuống dòng */
+    white-space: normal; /* Đảm bảo thẻ p có thể xuống dòng */
+    overflow-wrap: break-word; /* Đảm bảo nội dung dài không bị tràn ra ngoài */
+    color: gainsboro;
+  }
+
+.dish-item-container .info {
+  flex-grow: 1;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-item-container .price {
+  margin-top: auto;
+  font-size: larger;
+  font-weight: bold;
+  padding-top: 0.5rem;
+}
+
+.dish-item-container img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}

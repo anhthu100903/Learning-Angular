@@ -1,0 +1,61 @@
+<div class="pos-screen">
+  <!-- Header -->
+  <div class="pos-header">
+    <div class="table">
+      <i class="fa fa-utensils"></i>
+      <span>{{ tableName }}</span>
+    </div>
+    <div class="order-no">Order: #{{ orderNumber }}</div>
+  </div>
+
+  <!-- Tabs -->
+  <ul class="pos-tabs">
+    <li
+      *ngFor="let t of tabs; let i = index"
+      [class.active]="activeTab === i"
+      (click)="selectTab(i)"
+    >
+      {{ t }} ({{ i === 0 ? newOrders.length : history.length }})
+    </li>
+  </ul>
+
+  <!-- Order list -->
+  <div class="pos-list">
+    <ng-container *ngIf="orders.length; else empty">
+      <app-pos-order
+        *ngFor="let p of orders"
+        [product]="p"
+        (quantityChange)="onQtyChange($event)"
+        (remove)="onRemove($event)"
+      ></app-pos-order>
+    </ng-container>
+    <ng-template #empty>
+      <div class="empty">No items.</div>
+    </ng-template>
+  </div>
+
+  <!-- Summary -->
+  <div class="pos-summary">
+    <div class="line">
+      <span>Subtotal</span>
+      <span class="value">${{ subtotal.toFixed(2) }}</span>
+    </div>
+    <div class="line">
+      <span>Taxes (6%)</span>
+      <span class="value">${{ tax.toFixed(2) }}</span>
+    </div>
+    <div class="line total">
+      <span>Total</span>
+      <span class="value">${{ total.toFixed(2) }}</span>
+    </div>
+  </div>
+
+  <!-- Footer actions -->
+  <div class="pos-footer">
+    <button class="btn"><i class="fa fa-bell"></i><br />Service</button>
+    <button class="btn"><i class="fa fa-file-invoice"></i><br />Bill</button>
+    <button class="btn primary">
+      <i class="fa fa-paper-plane"></i><br />Submit Order
+    </button>
+  </div>
+</div>

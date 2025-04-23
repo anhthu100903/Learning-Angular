@@ -1,0 +1,29 @@
+.app-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background: rgb(48, 60, 73);
+  box-sizing: border-box;
+}
+
+.app-container-content {
+  width: 100vw;
+  display: flex;
+  margin: 25px;
+  box-sizing: border-box;
+  border: solid 1px white;
+}
+
+.app-caterogy {
+  width: 15%;
+}
+
+.app-dish-content {
+  width: 55%;
+  overflow: auto;
+  padding: 25px;
+}
+
+.app-order-summary {
+  width: 30%;
+}

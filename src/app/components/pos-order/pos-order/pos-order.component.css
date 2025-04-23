@@ -1,0 +1,116 @@
+.pos-order {
+  display: flex;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+/* Hiện nút remove khi hover cả khung item */
+.pos-order:hover .remove-btn {
+  opacity: 1;
+}
+
+.pos-order-product {
+  display: flex;
+}
+
+.pos-order-product .img {
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 1rem;
+}
+
+.flex-1 {
+  flex: 1;
+  flex-direction: column;
+  /* Gap tự động giữa các phần: title, price, details, controls */
+  gap: 0.5rem;
+}
+
+.flex-1 .d-flex {
+  margin-top: auto;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;     
+}
+
+.small {
+  font-size: 0.75rem;
+  color: gainsboro;
+  margin: 0;        
+}
+
+.details ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.details li {
+  color: gainsboro;
+  font-size: small;
+  text-align: left;
+  margin: 0.125rem 0;
+  line-height: 1.2;    
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+
+.btn-outline-theme {
+  color: #29b676;
+  border: 1px solid #29b676;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.w-50px {
+  width: 50px;
+}
+
+.mx-2 {
+  margin: 0 0.5rem;
+}
+
+.bg-white {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.bg-opacity-25 {
+  opacity: 0.25 !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: white;
+}
+
+.pos-order-price {
+  color: gainsboro;
+  margin-left: 1rem;
+  flex-shrink: 0;     
+}

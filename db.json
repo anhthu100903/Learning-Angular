@@ -1,0 +1,68 @@
+{
+  "dish": [
+    {
+      "id":0,
+      "name": "Grill Chicken Chop",
+      "ingredients": ["chicken", "egg", "mushroom", "salad"],
+      "price": 10.99,
+      "image": "/assets/image.png",
+      "category": "Meat"
+    },
+    {
+      "id": 1,
+      "name": "Grill Pork Chop",
+      "ingredients": ["pork", "egg", "mushroom", "salad"],
+      "price": 12.99,
+      "image": "/assets/image.png",
+      "category": "Meat"
+    },
+    {
+      "id": 2,
+      "name": "Capellini Tomato Sauce",
+      "ingredients": ["spaghetti", "tomato", "mushroom"],
+      "price": 11.99,
+      "image": "/assets/image.png",
+      "category": "Burger"
+    },
+    {
+      "id": 3,
+      "name": "Classic Beef Burger",
+      "ingredients": ["beef", "cheese", "lettuce", "bun"],
+      "price": 9.49,
+      "image": "/assets/image.png",
+      "category": "Burger"
+    },
+    {
+      "id": 4,
+      "name": "Pepperoni Pizza",
+      "ingredients": ["pepperoni", "cheese", "tomato sauce", "dough"],
+      "price": 13.99,
+      "image": "/assets/image.png",
+      "category": "Pizza"
+    },
+    {
+      "id": 5,
+      "name": "Lemon Soda",
+      "ingredients": ["lemon", "sugar", "soda water"],
+      "price": 3.99,
+      "image": "/assets/image.png",
+      "category": "Drinks"
+    },
+    {
+      "id": 6,
+      "name": "Chocolate Cake",
+      "ingredients": ["chocolate", "flour", "cream"],
+      "price": 5.49,
+      "image": "/assets/image.png",
+      "category": "Desserts"
+    },
+    {
+      "id": 7,
+      "name": "French Fries",
+      "ingredients": ["potatoes", "salt", "oil"],
+      "price": 2.99,
+      "image": "/assets/image.png",
+      "category": "Snacks"
+    }
+  ]
+}

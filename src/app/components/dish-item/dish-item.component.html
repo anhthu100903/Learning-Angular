@@ -1,0 +1,15 @@
+<div class="dish-item-container">
+  <img
+    [src]="dish.image"
+    alt=""
+    class="rounded-lg w-full h-40 object-cover mb-2"
+  />
+
+  <div class="info">
+    <div>
+      <h3>{{ dish.name }}</h3>
+      <p>{{ dish.ingredients }}</p>
+    </div>
+    <p class="price">{{ dish.price | currency }}</p>
+  </div>
+</div>
