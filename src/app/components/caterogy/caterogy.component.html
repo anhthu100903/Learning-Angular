@@ -5,33 +5,25 @@
   </div>
 
   <ul class="menu">
-    <li class="menu-item active" (click)="onCategoryChange('all')">
+    <li
+      class="menu-item active"
+      [ngClass]="{ active: selectedCategory === -1 }"
+      (click)="onCategoryChange(-1)"
+    >
       <i class="fa fa-fw fa-utensils"></i>
       <span>ALL DISHES</span>
     </li>
-    <li class="menu-item" (click)="onCategoryChange('meat')">
-      <i class="fa fa-fw fa-drumstick-bite"></i>
-      <span>MEAT</span>
+
+    <!-- lỗi active -->
+    @for (category of categoryList; track $index) {
+    <li
+      class="menu-item"
+      [ngClass]="{ active: selectedCategory === category.id }"
+      (click)="onCategoryChange(category.id)"
+    >
+      <i [class]="category.icon"></i>
+      <span>{{ category.name }}</span>
     </li>
-    <li class="menu-item" (click)="onCategoryChange('burger')">
-      <i class="fa fa-fw fa-hamburger"></i>
-      <span>BURGER</span>
-    </li>
-    <li class="menu-item" (click)="onCategoryChange('pizza')">
-      <i class="fa fa-fw fa-pizza-slice"></i>
-      <span>PIZZA</span>
-    </li>
-    <li class="menu-item" (click)="onCategoryChange('drinks')">
-      <i class="fa fa-fw fa-cocktail"></i>
-      <span>DRINKS</span>
-    </li>
-    <li class="menu-item" (click)="onCategoryChange('desserts')">
-      <i class="fa fa-fw fa-pizza-slice"></i>
-      <span>DESSERTS</span>
-    </li>
-    <li class="menu-item" (click)="onCategoryChange('snacks')">
-      <i class="fa fa-fw fa-cocktail"></i>
-      <span>SNACKS</span>
-    </li>
+    }
   </ul>
 </div>

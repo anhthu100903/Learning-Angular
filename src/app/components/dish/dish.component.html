@@ -1,3 +1,7 @@
 <div class="dish-container">
-    <app-dish-item *ngFor="let dish of filterDish" [dish]="dish"></app-dish-item>
+  <app-dish-item
+    *ngFor="let dish of dishList"
+    [dish]="dish"
+    (selectDish)="onDishSelected($event)"
+  ></app-dish-item>
 </div>

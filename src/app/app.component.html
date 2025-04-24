@@ -1,19 +1,21 @@
 <div class="app-container">
   <div class="app-container-content">
     <!-- sidebar -->
-   <aside class=".app-caterogy">
-    <app-caterogy  (categoryChange)="onHandleCategoryChange($event)"/>
-   </aside>
+    <aside class=".app-caterogy">
+      <app-caterogy (categoryChange)="onHandleCategoryChange($event)" />
+    </aside>
 
-   <!-- dish content -->
-   <!-- [selectedCategory]="currentCategory" -->
+    <!-- dish content -->
     <main class="app-dish-content">
-      <app-dish [selectedCategory]="currentCategory"/>
+      <app-dish [selectedCategory]="currentCategory" />
     </main>
 
     <!-- order summy -->
     <aside class="app-order-summary">
-      <app-new-order/>
+      <app-new-order />
     </aside>
+
   </div>
+  <app-card-button></app-card-button>
+
 </div>

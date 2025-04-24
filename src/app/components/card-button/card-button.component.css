@@ -1,0 +1,40 @@
+.order-button-mobile {
+  position: fixed;
+  bottom: 40px;
+  right: 60px;
+  display: none; /* show bằng media query */
+  z-index: 1000;
+}
+
+.order-button-mobile .order-icon button {
+  background-color: white;
+  border: none;
+  padding: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.order-button-mobile .order-icon i {
+  font-size: 24px;
+  color: black;
+}
+
+.order-button-mobile .cart-item-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .order-button-mobile {
+    display: block;
+  }
+}

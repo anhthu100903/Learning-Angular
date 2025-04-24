@@ -4,10 +4,11 @@ import { DishComponent } from "./components/dish/dish.component";
 import { NewOrderComponent } from "./components/new-order/new-order.component";
 import { Dish } from './models/dish.model';
 import { DishService } from './services/dishService/dish.service';
+import { CardButtonComponent } from "./components/card-button/card-button.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CaterogyComponent, DishComponent, NewOrderComponent],
+  imports: [CaterogyComponent, DishComponent, NewOrderComponent, CardButtonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

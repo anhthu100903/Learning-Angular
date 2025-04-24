@@ -1,0 +1,120 @@
+/* make the material container full flex */
+.dish-dialog-panel .mat-dialog-container {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  width: 80vw !important;
+  height: 80vh !important;
+  max-width: none !important;
+  max-height: none !important;
+}
+
+/* overall flex split */
+.dialog-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: #0b1726;
+  color: white;
+}
+
+/* left: image */
+.dialog-image {
+  flex: 1;
+  background: #000;
+}
+.dialog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* right: details */
+.dialog-details {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* header with title & close */
+.dd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.dd-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.close-btn {
+  color: white;
+}
+
+/* ingredients & price */
+.ingredients {
+  color: gainsboro;
+  margin: 0.5rem 0;
+}
+.price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* quantity */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.quantity-controls button {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #29b676;
+  background: transparent;
+  color: #29b676;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.quantity-controls span {
+  display: inline-block;
+  width: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* options */
+.options {
+  flex: 1;
+}
+.options h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1rem;
+  color: #ccc;
+}
+.option-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.option-group button {
+  flex: 1;
+  min-width: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  cursor: pointer;
+}
+.option-group button.selected {
+  border-color: #29b676;
+  color: #29b676;
+}

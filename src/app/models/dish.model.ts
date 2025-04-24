@@ -3,5 +3,5 @@ export interface Dish {
     name: string,
     ingredients: string[],
     image: string,
-    category: string,
+    category: number,
 }

@@ -1,12 +1,21 @@
 {
+  "category": [
+    { "id": 0, "name": "Meat", "icon": "fa fa-fw fa-drumstick-bite" },
+    { "id": 1, "name": "Burger", "icon": "fa fa-fw fa-hamburger" },
+    { "id": 2, "name": "Pizza", "icon": "fa fa-fw fa-pizza-slice"},
+    { "id": 3, "name": "Drinks", "icon": "fa fa-fw fa-cocktail" },
+    { "id": 4, "name": "Desserts", "icon": "fa fa-fw fa-pizza-slice"},
+    { "id": 5, "name": "Snacks", "icon": "fa fa-fw fa-cocktail"}
+  ],
+
   "dish": [
     {
-      "id":0,
+      "id": 0,
       "name": "Grill Chicken Chop",
       "ingredients": ["chicken", "egg", "mushroom", "salad"],
       "price": 10.99,
       "image": "/assets/image.png",
-      "category": "Meat"
+      "categoryId": 0
     },
     {
       "id": 1,
@@ -14,7 +23,7 @@
       "ingredients": ["pork", "egg", "mushroom", "salad"],
       "price": 12.99,
       "image": "/assets/image.png",
-      "category": "Meat"
+      "categoryId": 0
     },
     {
       "id": 2,
@@ -22,7 +31,7 @@
       "ingredients": ["spaghetti", "tomato", "mushroom"],
       "price": 11.99,
       "image": "/assets/image.png",
-      "category": "Burger"
+      "categoryId": 1
     },
     {
       "id": 3,
@@ -30,7 +39,7 @@
       "ingredients": ["beef", "cheese", "lettuce", "bun"],
       "price": 9.49,
       "image": "/assets/image.png",
-      "category": "Burger"
+      "categoryId": 1
     },
     {
       "id": 4,
@@ -38,7 +47,7 @@
       "ingredients": ["pepperoni", "cheese", "tomato sauce", "dough"],
       "price": 13.99,
       "image": "/assets/image.png",
-      "category": "Pizza"
+      "categoryId": 2
     },
     {
       "id": 5,
@@ -46,7 +55,7 @@
       "ingredients": ["lemon", "sugar", "soda water"],
       "price": 3.99,
       "image": "/assets/image.png",
-      "category": "Drinks"
+      "categoryId": 3
     },
     {
       "id": 6,
@@ -54,7 +63,7 @@
       "ingredients": ["chocolate", "flour", "cream"],
       "price": 5.49,
       "image": "/assets/image.png",
-      "category": "Desserts"
+      "categoryId": 4
     },
     {
       "id": 7,
@@ -62,7 +71,7 @@
       "ingredients": ["potatoes", "salt", "oil"],
       "price": 2.99,
       "image": "/assets/image.png",
-      "category": "Snacks"
+      "categoryId": 5
     }
   ]
 }

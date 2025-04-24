@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  /* height: 100%; Chiều cao tự động kéo dài */
 }
 
 .dish-item-container .info p {

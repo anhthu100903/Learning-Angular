@@ -1,0 +1,46 @@
+<div class="dialog-container">
+  <div class="dialog-image">
+    <img [src]="dish.image" alt="{{ dish.name }}" />
+  </div>
+  <div class="dialog-details">
+    <header class="dd-header">
+      <h2>{{ dish.name }}</h2>
+      <button mat-icon-button class="close-btn" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </header>
+
+    <p class="ingredients">{{ dish.ingredients.join(", ") }}</p>
+    <p class="price">${{ dish.price.toFixed(2) }}</p>
+
+    <div class="quantity-controls">
+      <button >−</button>
+      <span>{{ dish.quantity }}</span>
+      <button >+</button>
+    </div>
+
+    <section class="options">
+      <h3>Size:</h3>
+      <div class="option-group">
+        <button
+          *NgFor="let sz of sizes"
+          [class.selected]="sz === selectedSize"
+          (click)="selectSize(sz)"
+        >
+          {{ sz.label }}<br /><small>+{{ sz.extra | currency }}</small>
+        </button>
+      </div>
+
+      <h3>Add On:</h3>
+      <div class="option-group">́
+        <button ́*for 
+          *NgFor="let add of adds"
+          [class.selected]="selectedAdds.has(add)"
+          (click)="toggleAdd(add)"
+        >
+          {{ add.label }}<br /><small>+{{ add.extra | currency }}</small>
+        </button>
+      </div>
+    </section>
+  </div>
+</div>

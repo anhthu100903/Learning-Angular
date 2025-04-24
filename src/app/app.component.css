@@ -7,7 +7,9 @@
 }
 
 .app-container-content {
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   display: flex;
   margin: 25px;
   box-sizing: border-box;
@@ -26,4 +28,26 @@
 
 .app-order-summary {
   width: 30%;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 1024px) {
+  .app-container-content {
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .app-caterogy {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .app-dish-content {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .app-order-summary {
+    display: none;
+  }
 }
