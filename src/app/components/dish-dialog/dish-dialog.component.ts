@@ -1,19 +1,20 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewEncapsulation  } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule }   from '@angular/material/icon';
-import { CurrencyPipe } from '@angular/common';
-import { CommonModule } from '@angular/common';
 import { QuantityControlsComponent } from "../quantity-controls/quantity-controls.component";
 import { RatingComponent } from "../rating/rating.component";
 
 @Component({
   selector: 'app-dish-dialog',
-  imports: [CurrencyPipe, MatIconModule, QuantityControlsComponent, RatingComponent],
+  imports: [MatIconModule, QuantityControlsComponent, RatingComponent],
   templateUrl: './dish-dialog.component.html',
   styleUrl: './dish-dialog.component.css',
+  encapsulation: ViewEncapsulation.None, 
 })
 export class DishDialogComponent {
-  userRating: number = 5;
+  userRating: number = 0;
+  quantity: number = 0;
+  // @Input() 
   
   sizes = [
     { label: 'Small', extra: 0 },

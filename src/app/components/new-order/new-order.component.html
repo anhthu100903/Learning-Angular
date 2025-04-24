@@ -10,25 +10,26 @@
 
   <!-- Tabs -->
   <ul class="pos-tabs">
-    <li
-      *ngFor="let t of tabs; let i = index"
-      [class.active]="activeTab === i"
-      (click)="selectTab(i)"
-    >
-      {{ t }} ({{ i === 0 ? newOrders.length : history.length }})
+    @for (t of tabs; track $index) {
+    <li [class.active]="activeTab === $index" (click)="selectTab($index)">
+      {{ t }} ({{ $index === 0 ? newOrders.length : history.length }})
     </li>
+    }
   </ul>
 
   <!-- Order list -->
   <div class="pos-list">
-    <ng-container *ngIf="orders.length; else empty">
+    @if(orders.length){
+    <ng-container>
+      @for (p of orders; track $index) {
       <app-pos-order
-        *ngFor="let p of orders"
         [product]="p"
         (quantityChange)="onQtyChange($event)"
         (remove)="onRemove($event)"
       ></app-pos-order>
+      }
     </ng-container>
+    }
     <ng-template #empty>
       <div class="empty">No items.</div>
     </ng-template>

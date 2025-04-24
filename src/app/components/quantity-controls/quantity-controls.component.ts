@@ -8,18 +8,18 @@ import { OrderItem } from '../new-order/new-order.component';
   styleUrl: './quantity-controls.component.css'
 })
 export class QuantityControlsComponent {
-  @Input() product!: OrderItem;
-  @Output() quantityChange = new EventEmitter<{ product: OrderItem; quantity: number }>();
+  @Input() quantity: number = 0;
+  @Output() quantityChange = new EventEmitter<{ quantity: number }>();
 
   increase() {
-    this.product.quantity++;
-    this.quantityChange.emit({ product: this.product, quantity: this.product.quantity });
+    this.quantity++;
+    this.quantityChange.emit({ quantity: this.quantity });
   }
 
   decrease() {
-    if (this.product.quantity > 1) {
-      this.product.quantity--;
-      this.quantityChange.emit({ product: this.product, quantity: this.product.quantity });
+    if (this.quantity > 1) {
+      this.quantity--;
+      this.quantityChange.emit({ quantity: this.quantity });
     }
   }
 }

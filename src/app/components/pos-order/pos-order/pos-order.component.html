@@ -9,37 +9,15 @@
       <div class="small mb-1">${{ product.price.toFixed(2) }}</div>
       <div class="small mb-2 text-white details">
         <ul>
-          <ng-container *ngFor="let detail of product.details; let i = index">
-            <li *ngIf="i < product.details.length - 1">- {{ detail }}</li>
-            <li *ngIf="i === product.details.length - 1">- {{ detail }}</li>
+          @for (detail of product.details; track $index) {
+          <ng-container>
+            <li *ngIf="$index < product.details.length - 1">- {{ detail }}</li>
+            <li *ngIf="$index === product.details.length - 1">- {{ detail }}</li>
           </ng-container>
+          }
         </ul>
       </div>
-      <!-- <app-quantity-controls/> -->
-      <div class="d-flex">
-        <button
-          type="button"
-          class="btn btn-outline-theme btn-sm"
-          (click)="decrease()"
-          aria-label="Decrease quantity"
-        >
-          <i class="fa fa-minus"></i>
-        </button>
-        <input
-          type="text"
-          class="form-control w-50px form-control-sm mx-2 bg-white bg-opacity-25 text-center text-white"
-          [value]="product.quantity"
-          aria-label="Product quantity"
-        />
-        <button
-          type="button"
-          class="btn btn-outline-theme btn-sm"
-          (click)="increase()"
-          aria-label="Increase quantity"
-        >
-          <i class="fa fa-plus"></i>
-        </button>
-      </div>
+      <app-quantity-controls [quantity]="product.quantity" />
     </div>
   </div>
 

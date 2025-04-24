@@ -83,9 +83,11 @@ export class DishComponent {
   onDishSelected(dish: any) {
     this.dialog.open(DishDialogComponent, {
       data: dish,
-      // width: '120%',
-      height: '90vh',
-      panelClass: 'dish-dialog-panel',
+      width: '100vw',               // full chiều rộng màn hình
+      height: '100vh',              // full chiều cao màn hình
+      maxWidth: '100vw',            // tránh bị giới hạn chiều rộng
+      panelClass: 'full-screen-dialog', // class tùy chỉnh
+      autoFocus: false              // tránh tự scroll
     });
   }
 }

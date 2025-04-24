@@ -1,9 +1,10 @@
 <div #dishContainer class="dish-container" (scroll)="onScroll($event)">
+  @for (dish of dishes; track $index) {
   <app-dish-item
-    *ngFor="let dish of dishes"
     [dish]="dish"
     (selectDish)="onDishSelected($event)"
   ></app-dish-item>
+  }
 </div>
 
 <!-- @if(!isLoading){

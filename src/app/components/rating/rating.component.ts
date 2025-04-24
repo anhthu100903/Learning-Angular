@@ -12,6 +12,7 @@ export class RatingComponent {
 
   setRating(value: number) {
     this.rating = value;
+    console.log(this.rating)
     this.ratingChange.emit(this.rating);  // gửi giá trị về component cha
   }
 }

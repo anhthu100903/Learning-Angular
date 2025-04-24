@@ -1,52 +1,60 @@
-<div class="dialog-container">
-  <div class="dialog-image">
-    <img [src]="dish.image" alt="{{ dish.name }}" />
-  </div>
-  <div class="dialog-details">
-    <header class="dd-header">
-      <h2>{{ dish.name }}</h2>
-      <button class="close-btn" (click)="closeDialog()">
-        <mat-icon class="close-btn-icon">close</mat-icon>
-      </button>
-    </header>
-
-    <div class="dialog-rating">
-      <p>Review: </p>
-      <app-rating [(rating)]="userRating"></app-rating>
+<div class="dialog-wrap">
+  <div class="dialog-container">
+    <div class="dialog-image">
+      <img [src]="dish.image" alt="{{ dish.name }}" />
     </div>
-    <p class="ingredients">{{ dish.ingredients.join(", ") }}</p>
-    <p class="price">${{ dish.price.toFixed(2) }}</p>
+    <div class="dialog-details">
+      <div class="dialog-details-header">
+        <header class="dd-header">
+          <h2>{{ dish.name }}</h2>
+          <button class="close-btn" (click)="closeDialog()">
+            <mat-icon class="close-btn-icon">close</mat-icon>
+          </button>
+        </header>
 
-    <app-quantity-controls />
+        <p class="ingredients">{{ dish.ingredients.join(", ") }}</p>
+        <p class="price">${{ dish.price.toFixed(2) }}</p>
 
-    <section class="options">
-      <h3>Size:</h3>
-      <div class="option-group">
-        @for (sz of sizes; track $index) {
-        <button [class.selected]="sz === selectedSize" (click)="selectSize(sz)">
-          <p>{{ sz.label }}</p>
-          <span>+ {{ sz.extra.toFixed(2) }}</span>
-        </button>
-        }
+        <app-quantity-controls [quantity]="quantity" />
       </div>
 
-      <h3>Add On:</h3>
-      <div class="option-group">
-        @for (add of adds; track $index) {
-        <button
-          [class.selected]="selectedAdds.has(add)"
-          (click)="toggleAdd(add)"
-        >
-          <p>{{ add.label }}</p>
-          <span>+ {{ add.extra.toFixed(2) }}</span>
-        </button>
-        }
-      </div>
-    </section>
+      <section class="options">
+        <h3>Size:</h3>
+        <div class="option-group">
+          @for (sz of sizes; track $index) {
+          <button
+            [class.selected]="sz === selectedSize"
+            (click)="selectSize(sz)"
+          >
+            <p>{{ sz.label }}</p>
+            <span>+ {{ sz.extra.toFixed(2) }}</span>
+          </button>
+          }
+        </div>
 
-    <div class="dialod-btn">
-      <button class="dialog-btn-cancle">Cancle</button>
-      <button class="dialog-btn-add">Add to card +</button>
+        <h3>Add On:</h3>
+        <div class="option-group">
+          @for (add of adds; track $index) {
+          <button
+            [class.selected]="selectedAdds.has(add)"
+            (click)="toggleAdd(add)"
+          >
+            <p>{{ add.label }}</p>
+            <span>+ {{ add.extra.toFixed(2) }}</span>
+          </button>
+          }
+        </div>
+
+        <h3>Review:</h3>
+        <div class="dialog-rating">
+          <app-rating [(rating)]="userRating"></app-rating>
+        </div>
+      </section>
+
+      <div class="dialod-btn">
+        <button class="dialog-btn-cancle" (click)="closeDialog()">Cancle</button>
+        <button class="dialog-btn-add">Add to card +</button>
+      </div>
     </div>
   </div>
 </div>
