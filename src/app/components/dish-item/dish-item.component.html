@@ -8,7 +8,7 @@
   <div class="info">
     <div>
       <h3>{{ dish.name }}</h3>
-      <p>{{ dish.ingredients }}</p>
+      <p>{{ dish.ingredients.join(", ") }}</p>
     </div>
     <p class="price">{{ dish.price | currency }}</p>
   </div>

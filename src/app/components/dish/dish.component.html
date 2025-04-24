@@ -1,7 +1,14 @@
-<div class="dish-container">
+<div #dishContainer class="dish-container" (scroll)="onScroll($event)">
   <app-dish-item
-    *ngFor="let dish of dishList"
+    *ngFor="let dish of dishes"
     [dish]="dish"
     (selectDish)="onDishSelected($event)"
   ></app-dish-item>
 </div>
+
+<!-- @if(!isLoading){
+<div class="loading-indicator">
+  <mat-progress-spinner mode="indeterminate"> </mat-progress-spinner>
+  <p>Đang tải dữ liệu...</p>
+</div>
+} -->

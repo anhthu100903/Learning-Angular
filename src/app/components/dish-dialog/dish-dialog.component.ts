@@ -3,14 +3,18 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule }   from '@angular/material/icon';
 import { CurrencyPipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { QuantityControlsComponent } from "../quantity-controls/quantity-controls.component";
+import { RatingComponent } from "../rating/rating.component";
 
 @Component({
   selector: 'app-dish-dialog',
-  imports: [CurrencyPipe, MatIconModule],
+  imports: [CurrencyPipe, MatIconModule, QuantityControlsComponent, RatingComponent],
   templateUrl: './dish-dialog.component.html',
   styleUrl: './dish-dialog.component.css',
 })
 export class DishDialogComponent {
+  userRating: number = 5;
+  
   sizes = [
     { label: 'Small', extra: 0 },
     { label: 'Large', extra: 3 },

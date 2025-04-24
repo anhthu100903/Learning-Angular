@@ -8,6 +8,11 @@
   height: 100%;
 }
 
+
+.dish-item-container::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
 .dish-item-container .info p {
     word-wrap: break-word; /* Cho phép nội dung dài xuống dòng */
     white-space: normal; /* Đảm bảo thẻ p có thể xuống dòng */

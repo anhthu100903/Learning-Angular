@@ -1,0 +1,14 @@
+<div class="rating-star">
+  @for (star of [1, 2, 3, 4, 5]; track $index) {
+  <ng-container>
+    <span
+      class="text-2xl"
+      [class.text-yellow-400]="star <= rating"
+      [class.text-gray-300]="star > rating"
+      (click)="setRating(star)"
+    >
+      ★
+    </span>
+  </ng-container>
+  }
+</div>

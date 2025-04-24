@@ -49,7 +49,7 @@
 }
 
 .menu::-webkit-scrollbar-thumb {
-  background-color: #8f8f8f;
+  background: #555;
   border-radius: 10px;
 }
 

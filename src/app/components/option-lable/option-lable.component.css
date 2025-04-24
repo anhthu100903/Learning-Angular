@@ -1,0 +1,13 @@
+.option-lable {
+    border-radius: 5px;
+    border: solid 1px white;
+    color: white;
+}
+
+.option-lable-title {
+    
+}
+
+.option-lable-price {
+    font-weight: bold;
+}

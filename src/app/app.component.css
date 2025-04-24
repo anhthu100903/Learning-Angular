@@ -22,8 +22,7 @@
 
 .app-dish-content {
   width: 55%;
-  overflow: auto;
-  padding: 25px;
+  border: solid 1px white;
 }
 
 .app-order-summary {

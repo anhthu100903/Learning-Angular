@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderItem } from '../../new-order/new-order.component';
+import { QuantityControlsComponent } from "../../quantity-controls/quantity-controls.component";
 
 @Component({
   selector: 'app-pos-order',
-  imports: [CommonModule],
+  imports: [CommonModule, QuantityControlsComponent],
   templateUrl: './pos-order.component.html',
   styleUrl: './pos-order.component.css'
 })

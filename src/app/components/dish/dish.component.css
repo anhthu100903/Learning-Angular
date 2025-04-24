@@ -2,5 +2,74 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 25px;
-  align-items: stretch;         /* Quan trọng: các card kéo cao đều */
+  align-items: stretch;         /* các card kéo cao đều */
+  height: 100%;
+  padding: 25px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+/* Custom scrollbar */
+.dish-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dish-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dish-container::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+.loading-indicator {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  background-color: rgba(31, 41, 55, 0.8); /* Dark background with slight transparency */
+  border-radius: 8px;
+  margin: 20px auto;
+  width: fit-content;
+}
+
+mat-progress-spinner {
+  --spinner-color: #facc15; /* Yellow accent to match the theme */
+  --spinner-size: 50px; /* Slightly larger for better visibility */
+}
+
+mat-progress-spinner ::ng-deep .mat-progress-spinner circle {
+  stroke: var(--spinner-color);
+  stroke-width: 4px; /* Thicker stroke for a bolder look */
+  animation: pulse 2s ease-in-out infinite; /* Add a pulsing effect */
+}
+
+.loading-indicator p {
+  color: #facc15; /* Match the spinner color */
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Pulse animation for the spinner */
+@keyframes pulse {
+  0% {
+    stroke-opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    stroke-opacity: 0.5;
+    transform: scale(1.1);
+  }
+  100% {
+    stroke-opacity: 1;
+    transform: scale(1);
+  }
 }

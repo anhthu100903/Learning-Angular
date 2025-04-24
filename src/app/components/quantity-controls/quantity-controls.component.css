@@ -1,0 +1,40 @@
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.btn-outline-theme {
+  color: #29b676;
+  border: 1px solid #29b676;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.w-50px {
+  width: 50px;
+}
+
+.mx-2 {
+  margin: 0 0.5rem;
+}
+
+.bg-white {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.bg-opacity-25 {
+  opacity: 0.25 !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: white;
+}

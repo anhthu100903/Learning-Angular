@@ -2,13 +2,13 @@
   "category": [
     { "id": 0, "name": "Meat", "icon": "fa fa-fw fa-drumstick-bite" },
     { "id": 1, "name": "Burger", "icon": "fa fa-fw fa-hamburger" },
-    { "id": 2, "name": "Pizza", "icon": "fa fa-fw fa-pizza-slice"},
+    { "id": 2, "name": "Pizza", "icon": "fa fa-fw fa-pizza-slice" },
     { "id": 3, "name": "Drinks", "icon": "fa fa-fw fa-cocktail" },
-    { "id": 4, "name": "Desserts", "icon": "fa fa-fw fa-pizza-slice"},
-    { "id": 5, "name": "Snacks", "icon": "fa fa-fw fa-cocktail"}
+    { "id": 4, "name": "Desserts", "icon": "fa fa-fw fa-pizza-slice" },
+    { "id": 5, "name": "Snacks", "icon": "fa fa-fw fa-cocktail" }
   ],
 
-  "dish": [
+  "dishes": [
     {
       "id": 0,
       "name": "Grill Chicken Chop",
@@ -72,6 +72,94 @@
       "price": 2.99,
       "image": "/assets/image.png",
       "categoryId": 5
+    },
+    {
+      "id": 8,
+      "name": "Grill Chicken Chop 8",
+      "ingredients": ["chicken", "egg", "mushroom", "salad"],
+      "price": 10.99,
+      "image": "/assets/image.png",
+      "categoryId": 0
+    },
+    {
+      "id": 9,
+      "name": "Grill Pork Chop 9",
+      "ingredients": ["pork", "egg", "mushroom", "salad"],
+      "price": 12.99,
+      "image": "/assets/image.png",
+      "categoryId": 0
+    },
+    {
+      "id": 10,
+      "name": "Capellini Tomato Sauce 10",
+      "ingredients": ["spaghetti", "tomato", "mushroom"],
+      "price": 11.99,
+      "image": "/assets/image.png",
+      "categoryId": 1
+    },
+    {
+      "id": 11,
+      "name": "Classic Beef Burger 11",
+      "ingredients": ["beef", "cheese", "lettuce", "bun"],
+      "price": 9.49,
+      "image": "/assets/image.png",
+      "categoryId": 1
+    },
+    {
+      "id": 12,
+      "name": "Pepperoni Pizza 12",
+      "ingredients": ["pepperoni", "cheese", "tomato sauce", "dough"],
+      "price": 13.99,
+      "image": "/assets/image.png",
+      "categoryId": 2
+    },
+    {
+      "id": 13,
+      "name": "Lemon Soda 13",
+      "ingredients": ["lemon", "sugar", "soda water"],
+      "price": 3.99,
+      "image": "/assets/image.png",
+      "categoryId": 3
+    },
+    {
+      "id": 14,
+      "name": "Chocolate Cake 14",
+      "ingredients": ["chocolate", "flour", "cream"],
+      "price": 5.49,
+      "image": "/assets/image.png",
+      "categoryId": 4
+    },
+    {
+      "id": 15,
+      "name": "French Fries 15",
+      "ingredients": ["potatoes", "salt", "oil"],
+      "price": 2.99,
+      "image": "/assets/image.png",
+      "categoryId": 5
+    },
+    {
+      "id": 16,
+      "name": "Lemon Soda 16",
+      "ingredients": ["lemon", "sugar", "soda water"],
+      "price": 3.99,
+      "image": "/assets/image.png",
+      "categoryId": 0
+    },
+    {
+      "id": 17,
+      "name": "Chocolate Cake 17",
+      "ingredients": ["chocolate", "flour", "cream"],
+      "price": 5.49,
+      "image": "/assets/image.png",
+      "categoryId": 0
+    },
+    {
+      "id": 18,
+      "name": "French Fries 18",
+      "ingredients": ["potatoes", "salt", "oil"],
+      "price": 2.99,
+      "image": "/assets/image.png",
+      "categoryId": 0
     }
   ]
 }
