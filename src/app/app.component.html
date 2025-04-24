@@ -1,21 +1,23 @@
 <div class="app-container">
   <div class="app-container-content">
     <!-- sidebar -->
-    <aside class=".app-caterogy">
+    <aside class="app-caterogy" [class.active]="isCardClick">
       <app-caterogy (categoryChange)="onHandleCategoryChange($event)" />
     </aside>
 
     <!-- dish content -->
-    <main class="app-dish-content">
+    <main class="app-dish-content" [class.active]="isCardClick">
       <app-dish [selectedCategory]="currentCategory" />
     </main>
 
     <!-- order summy -->
-    <aside class="app-order-summary">
+    <aside class="app-order-summary" [class.active]="isCardClick">
+      <button class="app-order-btn-back" [class.active]="isCardClick" (click)="onHandleBackClick()">
+        <i class="fa fa-angle-left"></i>
+      </button>
       <app-new-order />
     </aside>
-
   </div>
-  <app-card-button></app-card-button>
 
+  <app-card-button class="app-order-btn-card" [class.active]="isCardClick" (click)="onHandleCardClick()"></app-card-button>
 </div>

@@ -19,11 +19,20 @@ import { CardButtonComponent } from './components/card-button/card-button.compon
 })
 export class AppComponent {
   currentCategory: number = -1;
+  isCardClick: boolean = false;
 
   onCategorySelected(event: { category: number }) {}
 
   onHandleCategoryChange(event: { category: number }) {
     console.log('Selected Category in Parent:', event.category);
     this.currentCategory = event.category;
+  }
+
+  onHandleCardClick(){
+    this.isCardClick = true;
+  }
+
+  onHandleBackClick(){
+    this.isCardClick = false;
   }
 }

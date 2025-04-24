@@ -29,6 +29,10 @@
   width: 30%;
 }
 
+.app-order-btn-back {
+  display: none;
+}
+
 /* Responsive design for smaller screens */
 @media (max-width: 1024px) {
   .app-container-content {
@@ -47,6 +51,41 @@
   }
 
   .app-order-summary {
+    display: none;
+  }
+
+  
+  .app-caterogy.active {
+    display: none;
+  }
+
+  .app-dish-content.active {
+    display: none;
+  }
+
+  .app-order-summary.active {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-left: 0;
+  }
+  .app-order-summary.active .app-order-btn-back.active{
+    display: block;
+    height: 2rem;
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    background: rgb(48, 60, 73);
+    border: none;
+    color: white;
+  }
+
+  app-new-order {
+    flex: 1; /* chiếm hết không gian còn lại */
+    overflow: auto; /* nếu cần scroll */
+  }
+  
+  .app-order-btn-card.active {
     display: none;
   }
 }
