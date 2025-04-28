@@ -21,8 +21,7 @@ export class AppComponent {
   currentCategory: number = -1;
   isCardClick: boolean = false;
 
-  onCategorySelected(event: { category: number }) {}
-
+  //xử lý khi có thay đổi category từ component con
   onHandleCategoryChange(event: { category: number }) {
     console.log('Selected Category in Parent:', event.category);
     this.currentCategory = event.category;

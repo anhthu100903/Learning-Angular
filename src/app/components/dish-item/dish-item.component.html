@@ -5,11 +5,9 @@
     class="rounded-lg w-full h-40 object-cover mb-2"
   />
 
-  <div class="info">
-    <div>
-      <h3>{{ dish.name }}</h3>
-      <p>{{ dish.ingredients.join(", ") }}</p>
-    </div>
-    <p class="price">{{ dish.price | currency }}</p>
+  <div class="dish-item-info">
+    <h3>{{ dish.name }}</h3>
+    <p class="dish-item-description">{{ dish.ingredients.join(", ") }}</p>
+    <p class="dish-item-price">{{ dish.price | currency }}</p>
   </div>
 </div>

@@ -1,50 +1,71 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Dish } from '../../models/dish.model';
 
+//cho phép class này được inject ở nơi khác
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root', //tự tạo 1 instance duy nhất
 })
 export class DishService {
-  dish_url = 'http://localhost:3000/dishes'
-  category_url = 'http://localhost:3000/category'
-  constructor() { }
+  dish_url = 'http://localhost:3000/dishes';
 
-  async getDishesByStartIndex(startIndex: number = 0, limit: number = 6): Promise<Dish[]> {
+  // Khai báo signal để lưu dữ liệu
+  dishes = signal<Dish[]>([]);
+
+  constructor() {}
+
+  //lấy ds các món có phân trang
+  async getDishesByStartIndex(
+    startIndex: number = 0,
+    limit: number = 6
+  ): Promise<void> {
     try {
-      const data = await fetch(`${this.dish_url}?_start=${startIndex}&_limit=${limit}`);
+      const data = await fetch(
+        `${this.dish_url}?_start=${startIndex}&_limit=${limit}`
+      );
       const jsonData = await data.json();
       console.log(`Start index ${startIndex} - Dishes:`, jsonData);
-      return jsonData ?? [];
+
+      // nếu startIndex = 0 (reset), ghi đè; ngược lại append
+      if (startIndex === 0) {
+        this.dishes.set(jsonData);
+      } else {
+        this.dishes.update((curr) => [...curr, ...jsonData]);
+      }
     } catch (error) {
       console.error(`Error fetching dishes by start index:`, error);
-      return [];
+      this.dishes.set([]);
     }
   }
 
-  async getAllCategory(): Promise<Dish[]> {
+  async getDishByCategoryId(
+    categoryId: number,
+    startIndex: number = 0,
+    limit: number = 6
+  ): Promise<void> {
     try {
-      const data = await fetch(this.category_url);
-      
-      const text = await data.text(); // Lấy response body dưới dạng text
-      const jsonData = JSON.parse(text); // Thử parse thủ công
-      console.log('Parsed JSON:', jsonData);
-      return jsonData ?? [];
-    } catch (error) {
-      console.error('Error fetching or parsing data:', error);
-      return [];
-    }
-  }
-
-  async getDishByCategoryId(categoryId: number, startIndex: number = 0, limit: number = 6): Promise<Dish[]> {
-    try {
-      const data = await fetch(`${this.dish_url}?categoryId=${categoryId}&_start=${startIndex}&_limit=${limit}`);
+      const data = await fetch(
+        `${this.dish_url}?categoryId=${categoryId}&_start=${startIndex}&_limit=${limit}`
+      );
       const text = await data.text();
       const jsonData = JSON.parse(text);
-      console.log(`Dishes with categoryId ${categoryId}:`, jsonData, `Start index: ${startIndex}`);
-      return jsonData ?? [];
+      console.log(
+        `Dishes with categoryId ${categoryId}:`,
+        jsonData,
+        `Start index: ${startIndex}`
+      );
+      
+      // nếu startIndex = 0 (reset), ghi đè; ngược lại append
+      if (startIndex === 0) {
+        this.dishes.set(jsonData);
+      } else {
+        this.dishes.update((curr) => [...curr, ...jsonData]);
+      }
     } catch (error) {
-      console.error(`Error fetching dishes by categoryId ${categoryId}:`, error);
-      return [];
+      console.error(
+        `Error fetching dishes by categoryId ${categoryId}:`,
+        error
+      );
+      this.dishes.set([]);
     }
-  }  
+  }
 }

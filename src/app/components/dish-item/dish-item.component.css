@@ -13,21 +13,22 @@
   background-color: #aaa;
 }
 
-.dish-item-container .info p {
-    word-wrap: break-word; /* Cho phép nội dung dài xuống dòng */
-    white-space: normal; /* Đảm bảo thẻ p có thể xuống dòng */
-    overflow-wrap: break-word; /* Đảm bảo nội dung dài không bị tràn ra ngoài */
-    color: gainsboro;
-  }
-
-.dish-item-container .info {
-  flex-grow: 1;
+.dish-item-info {
+  flex: 1;
   padding-left: 15px;
   display: flex;
   flex-direction: column;
 }
 
-.dish-item-container .price {
+.dish-item-description {
+  word-wrap: break-word; /* Cho phép nội dung dài xuống dòng */
+  white-space: normal; /* Đảm bảo thẻ p có thể xuống dòng */
+  overflow-wrap: break-word; /* Đảm bảo nội dung dài không bị tràn ra ngoài */
+  color: gainsboro;
+  flex-grow: 1;
+}
+
+.dish-item-price {
   margin-top: auto;
   font-size: larger;
   font-weight: bold;

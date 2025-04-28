@@ -2,6 +2,7 @@
   <div class="app-container-content">
     <!-- sidebar -->
     <aside class="app-caterogy" [class.active]="isCardClick">
+      <!--onHandleCategoryChange($event) bắt sự kiện từ app-category  -->
       <app-caterogy (categoryChange)="onHandleCategoryChange($event)" />
     </aside>
 
@@ -19,5 +20,5 @@
     </aside>
   </div>
 
-  <app-card-button class="app-order-btn-card" [class.active]="isCardClick" (click)="onHandleCardClick()"></app-card-button>
+  <app-card-button class="app-btn-card" [class.active]="isCardClick" (click)="onHandleCardClick()"></app-card-button>
 </div>

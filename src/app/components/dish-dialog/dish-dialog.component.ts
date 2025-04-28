@@ -34,6 +34,7 @@ export class DishDialogComponent {
   selectSize(sz: any) {
     this.selectedSize = sz;
   }
+  
   toggleAdd(add: any) {
     this.selectedAdds.has(add)
       ? this.selectedAdds.delete(add)

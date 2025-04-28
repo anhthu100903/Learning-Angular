@@ -48,6 +48,7 @@
   .app-dish-content {
     width: 100%;
     box-sizing: border-box;
+    overflow-y: hidden;
   }
 
   .app-order-summary {
@@ -70,6 +71,7 @@
     box-sizing: border-box;
     padding-left: 0;
   }
+
   .app-order-summary.active .app-order-btn-back.active{
     display: block;
     height: 2rem;
@@ -85,7 +87,7 @@
     overflow: auto; /* nếu cần scroll */
   }
   
-  .app-order-btn-card.active {
+  .app-btn-card.active {
     display: none;
   }
 }

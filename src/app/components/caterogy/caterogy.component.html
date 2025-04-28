@@ -14,8 +14,7 @@
       <span>ALL DISHES</span>
     </li>
 
-    <!-- lỗi active -->
-    @for (category of categoryList; track $index) {
+    @for (category of categoryService.categories(); track $index) {
     <li
       class="menu-item"
       [ngClass]="{ active: selectedCategory === category.id }"

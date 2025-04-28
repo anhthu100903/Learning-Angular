@@ -1,15 +1,17 @@
 <div class="dialog-wrap">
   <div class="dialog-container">
+    <button class="close-btn" (click)="closeDialog()">
+      <mat-icon class="close-btn-icon">close</mat-icon>
+    </button>
+
     <div class="dialog-image">
       <img [src]="dish.image" alt="{{ dish.name }}" />
     </div>
+    
     <div class="dialog-details">
       <div class="dialog-details-header">
         <header class="dd-header">
           <h2>{{ dish.name }}</h2>
-          <button class="close-btn" (click)="closeDialog()">
-            <mat-icon class="close-btn-icon">close</mat-icon>
-          </button>
         </header>
 
         <p class="ingredients">{{ dish.ingredients.join(", ") }}</p>

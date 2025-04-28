@@ -1,15 +1,8 @@
 <div #dishContainer class="dish-container" (scroll)="onScroll($event)">
-  @for (dish of dishes; track $index) {
+  @for (dish of dishService.dishes(); track $index) {
   <app-dish-item
     [dish]="dish"
     (selectDish)="onDishSelected($event)"
   ></app-dish-item>
   }
 </div>
-
-<!-- @if(!isLoading){
-<div class="loading-indicator">
-  <mat-progress-spinner mode="indeterminate"> </mat-progress-spinner>
-  <p>Đang tải dữ liệu...</p>
-</div>
-} -->
