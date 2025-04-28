@@ -7,7 +7,7 @@
   <ul class="menu">
     <li
       class="menu-item active"
-      [ngClass]="{ active: selectedCategory === -1 }"
+      [ngClass]="{ active: dishService.selectedCategoryId() === -1 }"
       (click)="onCategoryChange(-1)"
     >
       <i class="fa fa-fw fa-utensils"></i>
@@ -17,7 +17,7 @@
     @for (category of categoryService.categories(); track $index) {
     <li
       class="menu-item"
-      [ngClass]="{ active: selectedCategory === category.id }"
+      [ngClass]="{ active: dishService.selectedCategoryId() === category.id }"
       (click)="onCategoryChange(category.id)"
     >
       <i [class]="category.icon"></i>

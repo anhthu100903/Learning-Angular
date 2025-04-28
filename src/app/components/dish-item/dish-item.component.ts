@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
 
@@ -10,10 +10,13 @@ import { CommonModule } from '@angular/common';
 })
 export class DishItemComponent {
   @Input() dish: any;
+
+  selectDish = signal([]);
   
-  @Output() selectDish = new EventEmitter<any>();
+  // @Output() selectDish = new EventEmitter<any>();
 
   onSelectDish() {
-    this.selectDish.emit(this.dish);
+    this.selectDish.set(this.dish);
+    // this.selectDish.emit(this.dish);
   }
 }

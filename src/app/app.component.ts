@@ -23,7 +23,7 @@ export class AppComponent {
 
   //xử lý khi có thay đổi category từ component con
   onHandleCategoryChange(event: { category: number }) {
-    console.log('Selected Category in Parent:', event.category);
+    // console.log('Selected Category in Parent:', event.category);
     this.currentCategory = event.category;
   }
 

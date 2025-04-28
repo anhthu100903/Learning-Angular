@@ -1,10 +1,7 @@
 import {
   Component,
-  effect,
   ElementRef,
-  Input,
   signal,
-  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { DishItemComponent } from '../dish-item/dish-item.component';
@@ -21,40 +18,12 @@ import { DishDialogComponent } from '../dish-dialog/dish-dialog.component';
   styleUrl: './dish.component.css',
 })
 export class DishComponent {
-  //lấy giá trị selectedCategory từ cha
-  @Input() selectedCategory: number = -1;
-
   //lấy giá trị tham chiếu đến DOM
   @ViewChild('dishContainer', { static: true }) dishContainer!: ElementRef;
 
-  limit: number = 6;
-  currentPage = signal(0); //số trang hiện tại
-  isLoading = signal(false); //đánh dấu đang trong quá trình loading
-  reachedEndOfList = signal(false); //đánh dấu đang ở cuối danh sách
+  private isLoading = signal(false); //đánh dấu đang trong quá trình loading
 
-  constructor(private dialog: MatDialog, public dishService: DishService) {
-  }
-
-  ngOnInit() {
-    this.loadMore();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    //lọc khi dishList hoặc selectedCategory có thay đổi
-    if (
-      changes['selectedCategory'] &&
-      !changes['selectedCategory'].firstChange
-    ) {
-      this.resetAndLoadDishes(); //gọi khi selectedCategory thay đổi
-    }
-  }
-
-  resetAndLoadDishes() {
-    this.currentPage.set(0);
-    this.reachedEndOfList.set(false);
-    this.dishContainer.nativeElement.scrollTop = 0; // scroll về đầu
-    this.loadMore();
-  }
+  constructor(private dialog: MatDialog, public dishService: DishService) {}
 
   onScroll(event: Event): void {
     const element = event.target as HTMLElement;
@@ -62,36 +31,16 @@ export class DishComponent {
     const atBottom =
       element.scrollHeight - element.scrollTop <= element.clientHeight + 50;
 
-    if (atBottom && !this.isLoading() && !this.reachedEndOfList()) {
-      console.log("scroll")
+    if (atBottom && !this.isLoading() && !this.dishService.reachedEndOfList()) {
+      console.log('scroll');
       this.loadMore(); // gọi hàm load thêm món ăn
     }
   }
 
-  async loadMore() {
+  loadMore() {
     this.isLoading.set(true);
-
-    try {
-      const start = this.currentPage() * this.limit;
-      if (this.selectedCategory === -1) {
-        await this.dishService.getDishesByStartIndex(start, this.limit);
-      } else {
-        await this.dishService.getDishByCategoryId(
-          this.selectedCategory,
-          start,
-          this.limit
-        );
-      }
-
-      // nếu service.dishes() trả về ít hơn limit => end
-      if ( this.dishService.dishes().length < (this.currentPage() + 1) * this.limit) {
-        this.reachedEndOfList.set(true);
-      } else {
-        this.currentPage.update((n) => n + 1);
-      }
-    } finally {
-      this.isLoading.set(false);
-    }
+    this.dishService.loadMore();
+    this.isLoading.set(false);
   }
 
   onDishSelected(dish: any) {

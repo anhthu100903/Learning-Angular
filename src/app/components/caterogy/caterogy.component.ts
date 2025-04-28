@@ -1,7 +1,8 @@
-import { Component, Output, EventEmitter, Input, inject } from '@angular/core';
-import { CommonModule, NgClass } from '@angular/common';
+import { Component } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CategoryService } from '../../services/categoryService/category.service';
+import { DishService } from '../../services/dishService/dish.service';
 
 @Component({
   selector: 'app-caterogy',
@@ -10,11 +11,7 @@ import { CategoryService } from '../../services/categoryService/category.service
   styleUrl: './caterogy.component.css'
 })
 export class CaterogyComponent {
-  selectedCategory: number = -1;
-  //gửi giá trị category đến component cha
-  @Output() categoryChange = new EventEmitter<{category: number}>();
-
-  constructor(public categoryService: CategoryService){
+  constructor(public categoryService: CategoryService, public dishService: DishService){
   }
 
   async ngOnInit() {
@@ -22,8 +19,7 @@ export class CaterogyComponent {
   }
 
   onCategoryChange(category: number) {
-    this.selectedCategory = category;
-    console.log(category === this.selectedCategory);
-    this.categoryChange.emit({ category: category }); //gửi sự kiện đi
+    this.dishService.selectedCategoryId.set(category);
+    console.log("categoryId: ", category)
   }
 }
