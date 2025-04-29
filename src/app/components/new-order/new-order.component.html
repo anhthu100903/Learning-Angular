@@ -3,16 +3,21 @@
   <div class="pos-header">
     <div class="table">
       <i class="fa fa-utensils"></i>
-      <span>{{ tableName }}</span>
+      <span> {{ orderService.orderInfo()?.tablename }}</span>
     </div>
-    <div class="order-no">Order: #{{ orderNumber }}</div>
+    <div class="order-no">Order: #{{ orderService.orderInfo()?.orderId }}</div>
   </div>
 
   <!-- Tabs -->
   <ul class="pos-tabs">
     @for (t of tabs; track $index) {
     <li [class.active]="activeTab === $index" (click)="selectTab($index)">
-      {{ t }} ({{ $index === 0 ? newOrders.length : history.length }})
+      {{ t }} ({{
+        $index === 0
+          ? orderService.orderInfo()?.orderItems?.length || 0
+          : history.length || 0
+      }}
+      )
     </li>
     }
   </ul>

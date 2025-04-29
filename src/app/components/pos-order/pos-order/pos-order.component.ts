@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OrderItem } from '../../new-order/new-order.component';
+import { OrderItem } from '../../../models/orderInfo.model'; 
 import { QuantityControlsComponent } from "../../quantity-controls/quantity-controls.component";
 
 @Component({
@@ -13,20 +13,4 @@ export class PosOrderComponent {
   @Input() product!: OrderItem;
   @Output() quantityChange = new EventEmitter<{ product: OrderItem; quantity: number }>();
   @Output() remove = new EventEmitter<OrderItem>();
-
-  increase() {
-    this.product.quantity++;
-    this.quantityChange.emit({ product: this.product, quantity: this.product.quantity });
-  }
-
-  decrease() {
-    if (this.product.quantity > 1) {
-      this.product.quantity--;
-      this.quantityChange.emit({ product: this.product, quantity: this.product.quantity });
-    }
-  }
-
-  onRemove() {
-    this.remove.emit(this.product);
-  }
 }

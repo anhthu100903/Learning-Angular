@@ -2,11 +2,11 @@
   <div class="pos-order-product">
     <div
       class="img"
-      [ngStyle]="{ 'background-image': 'url(' + product.image + ')' }"
+      [ngStyle]="{ 'background-image': 'url(' + product.dish.image }"
     ></div>
     <div class="flex-1">
-      <div class="h6 mb-1">{{ product.name }}</div>
-      <div class="small mb-1">${{ product.price.toFixed(2) }}</div>
+      <div class="h6 mb-1">{{ product.dish.name }}</div>
+      <div class="small mb-1">${{ product.dish.price.toFixed(2) }}</div>
       <div class="small mb-2 text-white details">
         <ul>
           @for (detail of product.details; track $index) {
@@ -17,11 +17,11 @@
           }
         </ul>
       </div>
-      <app-quantity-controls [quantity]="product.quantity" />
+      <app-quantity-controls [quantity]="product.quantity" [id]="product.id"/>
     </div>
   </div>
 
   <div class="pos-order-price text-white">
-    ${{ (product.price * product.quantity).toFixed(2) }}
+    ${{ (product.dish.price * product.quantity).toFixed(2) }}
   </div>
 </div>

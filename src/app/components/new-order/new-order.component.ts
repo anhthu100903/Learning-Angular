@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PosOrderComponent } from "../pos-order/pos-order/pos-order.component";
-export interface OrderItem {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  details: string[];
-  quantity: number;
-}
+import { OrderInfoService } from '../../services/orderInfoService/order-info.service';
+import { OrderItem } from '../../models/orderInfo.model';
+// export interface OrderItem {
+//   id: number;
+//   name: string;
+//   price: number;
+//   image: string;
+//   details: string[];
+//   quantity: number;
+// }
 
 @Component({
   selector: 'app-new-order',
@@ -17,49 +19,30 @@ export interface OrderItem {
   styleUrl: './new-order.component.css'
 })
 export class NewOrderComponent {
-  tableName = 'Table 01';
-  orderNumber = '0056';
-
   tabs = ['New Order', 'Order History'];
   activeTab = 0;
-
-  // ví dụ dữ liệu New Order
-  newOrders: OrderItem[] = [
-    {
-      id: 1,
-      name: 'Grill Pork Chop',
-      price: 12.99,
-      image: '/assets/image.png',
-      details: ['size: large', 'spicy: medium'],
-      quantity: 1
-    },
-    {
-      id: 2,
-      name: 'Orange Juice',
-      price: 5.00,
-      image: '/assets/image.png',
-      details: [],
-      quantity: 2
-    },
-    {
-      id: 3,
-      name: 'Orange Juice',
-      price: 5.00,
-      image: '/assets/image.png',
-      details: ['size: large'],
-      quantity: 2
-    }
-  ];
 
   // Order History (ví dụ trống)
   history: OrderItem[] = [];
 
+  constructor(public orderService: OrderInfoService){    
+    effect(() => {
+    const info = this.orderService.orderInfo();
+    console.log('orderInfo changed:', info);
+  });
+  }
+
+  ngOnInit() {
+    this.orderService.setOrderId(12345); 
+
+  }
+
   get orders() {
-    return this.activeTab === 0 ? this.newOrders : this.history;
+    return (this.activeTab === 0 ? this.orderService.orderInfo()?.orderItems : this.history) ?? [];
   }
 
   get subtotal() {
-    return this.orders.reduce((sum, p) => sum + p.price * p.quantity, 0);
+    return this.orders.reduce((sum, p) => sum + p.dish.price * p.quantity, 0);
   }
 
   get tax() {
@@ -75,12 +58,23 @@ export class NewOrderComponent {
   }
 
   onQtyChange(event: { product: OrderItem; quantity: number }) {
-    // đã thay đổi quantity, Angular binding đã cập nhật
+    const list = this.activeTab === 0 ? this.orderService.orderInfo()?.orderItems : this.history;
+    const item = list?.find(p => p.id === event.product.id);
+    if (item) {
+      item.quantity = event.quantity;
+    }
+    console.log(this.orderService.orderInfo()?.orderItems);
   }
 
   onRemove(item: OrderItem) {
     if (this.activeTab === 0) {
-      this.newOrders = this.newOrders.filter(p => p.id !== item.id);
+      const orders = this.orderService.orderInfo()?.orderItems;
+      if (orders) {
+        const index = orders.findIndex(p => p.id === item.id);
+        if (index !== -1) {
+          orders.splice(index, 1); // Xóa phần tử
+        }
+      }
     }
   }
 }

@@ -161,5 +161,46 @@
       "image": "/assets/image.png",
       "categoryId": 0
     }
+  ],
+
+  "order-info": [
+    {
+      "tablename": "Table 5",
+      "orderId": 12345,
+      "orderItems": [
+        {
+          "id": 3,
+          "dish": {
+            "id": 18,
+            "name": "French Fries 18",
+            "ingredients": ["potatoes", "salt", "oil"],
+            "price": 2.99,
+            "image": "/assets/image.png",
+            "categoryId": 0
+          },
+          "details": ["size: large"],
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "tablename": "Table 5",
+      "orderId": 123456,
+      "orderItems": [
+        {
+          "id": 3,
+          "dish": {
+            "id": 18,
+            "name": "French Fries 18",
+            "ingredients": ["potatoes", "salt", "oil"],
+            "price": 2.99,
+            "image": "/assets/image.png",
+            "categoryId": 0
+          },
+          "details": ["size: large"],
+          "quantity": 2
+        }
+      ]
+    }
   ]
 }

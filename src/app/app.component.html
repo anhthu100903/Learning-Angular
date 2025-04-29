@@ -2,13 +2,12 @@
   <div class="app-container-content">
     <!-- sidebar -->
     <aside class="app-caterogy" [class.active]="isCardClick">
-      <!--onHandleCategoryChange($event) bắt sự kiện từ app-category  -->
-      <app-caterogy (categoryChange)="onHandleCategoryChange($event)" />
+      <app-caterogy  />
     </aside>
 
     <!-- dish content -->
     <main class="app-dish-content" [class.active]="isCardClick">
-      <app-dish [selectedCategory]="currentCategory" />
+      <app-dish />
     </main>
 
     <!-- order summy -->

@@ -3,5 +3,6 @@ export interface Dish {
     name: string,
     ingredients: string[],
     image: string,
-    category: number,
+    categoryId: number,
+    price: number,
 }

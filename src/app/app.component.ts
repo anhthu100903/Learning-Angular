@@ -1,9 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component} from '@angular/core';
 import { CaterogyComponent } from './components/caterogy/caterogy.component';
 import { DishComponent } from './components/dish/dish.component';
 import { NewOrderComponent } from './components/new-order/new-order.component';
-import { Dish } from './models/dish.model';
-import { DishService } from './services/dishService/dish.service';
 import { CardButtonComponent } from './components/card-button/card-button.component';
 
 @Component({
@@ -20,12 +18,6 @@ import { CardButtonComponent } from './components/card-button/card-button.compon
 export class AppComponent {
   currentCategory: number = -1;
   isCardClick: boolean = false;
-
-  //xử lý khi có thay đổi category từ component con
-  onHandleCategoryChange(event: { category: number }) {
-    // console.log('Selected Category in Parent:', event.category);
-    this.currentCategory = event.category;
-  }
 
   onHandleCardClick(){
     this.isCardClick = true;

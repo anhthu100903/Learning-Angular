@@ -1,4 +1,4 @@
-import { inject, Injectable, signal, effect } from '@angular/core';
+import { inject, Injectable, signal} from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { Dish } from '../../models/dish.model';
 import { HttpClient } from '@angular/common/http';
@@ -14,10 +14,10 @@ export class DishService {
 
   private dishesSignal = signal<Dish[]>([]);
 
-  startIndex = signal(0);
-  limit = signal(6);
-  selectedCategoryId = signal(-1);
-  reachedEndOfList = signal(false); //đánh dấu đang ở cuối danh sách
+  private startIndex = signal(0);
+  private limit = signal(6);
+  public selectedCategoryId = signal(-1);
+  public readonly reachedEndOfList = signal(false); //đánh dấu đang ở cuối danh sách
 
   constructor() {
     // Reset startIndex khi selectedCategoryId thay đổi
